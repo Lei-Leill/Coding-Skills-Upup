@@ -95,7 +95,7 @@ class Solution:
 
 滑动窗口，之前做过，但没完全掌握
 
-思考方向： 一开始，慢指针停留在原点，快指针一步步往后，若是sum大于等于了，先update min_length，尝试将慢指针往后，缩小窗口，直到sum小于target了，
+思考方向： 一开始，慢指针停留在原点，快指针一步步往后，直到窗口内的值大于target，此时开始缩圈: update min_length，将慢指针往后，直到sum小于target了，
 如果快指针还没有到最右，则往右移动，探索别的可能性
 
 ```
@@ -131,6 +131,11 @@ def minSubArrayLen(self, target: int, nums: List[int]) -> int:
                 fast += 1
         return min_len
 ```
+
+今晚TODO: 
+**904. 水果成篮**
+
+**76. 最小覆盖子串**
 
 **59.螺旋矩阵II**
 
