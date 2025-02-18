@@ -2,6 +2,8 @@
 
 **203. 移除链表元素**
 
+https://leetcode.cn/problems/remove-linked-list-elements/description/
+
 这一题单指针就可以满足了，而且思考起来会更简单，要点：若找到val，pointer不往后移，接着判断下一个是否为val
 ```
 #题解
@@ -36,6 +38,8 @@
 
 
 **707. 设计链表**
+
+https://leetcode.cn/problems/design-linked-list/description/
 
 好久没有define一个data strcuture了，快忘了node和linkedlist的关系，size是很有用的东西
 
@@ -105,6 +109,8 @@ class MyLinkedList:
 
 **206. 反转链表**
 
+https://leetcode.cn/problems/reverse-linked-list/description/
+
 自己做的时候没想出来，看了动画一下子想通了**双指针prev, curr + temp存储curr.next的做法**
 
 ```
@@ -131,3 +137,13 @@ def reverse(self, prev, curr): #和loop一样的逻辑
         return self.reverse(curr, temp)
     return prev
 ```
+
+# Day4
+
+**24. Swap Pairs**
+
+Recursion
+```
+
+```
+
