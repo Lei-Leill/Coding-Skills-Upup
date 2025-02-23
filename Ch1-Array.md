@@ -191,6 +191,10 @@ https://kamacoder.com/problempage.php?pid=1044
 
 
 # 总结
-![image](https://github.com/user-attachments/assets/6048884b-541d-4f92-b6a0-6f7819ff50b6)
 
+快慢指针的用法，快指针负责开拓，所以判断基本都是用快指针，慢指针用来留坑位；可以是都从头开始，可以是一头一尾，看需求
+
+滑动窗口，目前还没完全掌握
+
+边界问题要想清楚来，binary search 和 螺旋矩阵（模拟过程也很重要，能visualize那个过程）
      
