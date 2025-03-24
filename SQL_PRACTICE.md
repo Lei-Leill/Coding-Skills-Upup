@@ -1,4 +1,5 @@
-# Summary:
+# 3/22 Aesop Academy Note
+## Summary:
 
 ```
 SELECT <Column Names> or <SUM(column) / Count(column)/ AVG(column)> AS "(column name displayed in table"
@@ -16,7 +17,8 @@ Extract and Look at the whole table
 SELECT * FROM <TABLE>
 ```
 
-select列的时候可以refer join好的任何column
+**select列的时候可以refer join好的table里的任何column**
+
 ```
 SELECT A2C_COMMUNITY, SUM(FAMILY_COUNT) AS INDIVIDUALS
 FROM A2C_ROSTER
@@ -26,7 +28,7 @@ WHERE STATUS IN ("ACTIVE", "STAFF")
 GROUP BY COMM_MAPPINGS.A2C_COMMUNITY
 ORDER BY INDIVIDUALS DESC
 ```
-Multiple Table Joining
+## Multiple Table Joining
 ```
 SELECT <COLUMN NAME>
 FROM <TABLE NAME 1>
@@ -34,4 +36,20 @@ LEFT JOIN <TABLE NAME 2>
 ON <TABLE 1>.<MATCHING FIELD NAME> = <TABLE 2>.< MATCHING FIELD NAME >
 LEFT JOIN <TABLE NAME 3>
 ON <TABLE 1>.<MATCHING FIELD NAME> = <TABLE 3>.< MATCHING FIELD NAME >;
+```
+
+**And 用法，<Column_name> IN (<value1> , <value2>)**
+```
+SELECT *
+FROM A2C_ROSTER
+LEFT JOIN COMM_MAPPINGS
+ON A2C_ROSTER.STATE = COMM_MAPPINGS.STATE
+LEFT JOIN MEMBER_DETAILS
+ON A2C_ROSTER.MEMBER_ID = MEMBER_DETAILS.MEMBER_ID
+WHERE A2C_COMMUNITY = 'West'
+AND STATUS = 'ACTIVE'
+AND A2C_ROSTER.ROOM_TYPE = 'Large'
+AND VETERAN = 'N' AND SPECIAL_NEEDS = 'N'
+AND INCOME_LVL IN ('>100K','50 to 100K')
+AND FAMILY_COUNT >= 4;
 ```
