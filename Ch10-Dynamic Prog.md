@@ -100,7 +100,59 @@ def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
         return dp[num_row-1][num_col-1]
 ```
 
-背包问题
+**343. 整数拆分 积最大**
+
+因为一个整数可以被拆分成2个，3个，4个。。。（10 拆成3*3*4 = 36最大）都有可能是最大的。我们要利用dp的list去避免重复运算
+
+index表示数值和，value是拆分该数值的最大积
+
+say i=10；j = 1,2,...9 固定的，i-j可以进行拆分/不拆分，比如说如果i-j = 2, dp[i-j] = 1
+
+dp[i] = max(dp[i], j * dp[i-j], j * [i-j])
+
+优化空间，j < i //2 + 1, 因为数字越接近，积最大
+
+```
+def integerBreak(self, n: int) -> int:
+        dp = [0] * (n+1)
+        dp[2] = 1
+        for i in range(n+1):
+            for j in range(1, i//2 +1):
+                dp[i] = max(dp[i], j *dp[i-j], j * (i-j))
+        return dp[n]
+```
+
+
+
+**96. 不同的BST**
+
+思路：左边子树的不同方式 * 右边子树的方式 = Total ways
+
+```
+def numTrees(self, n: int) -> int:
+        dp = [0] * (n+1)
+        dp[0] = 1
+        dp[1] = 1
+
+        for i in range(2,n+1):
+            print(f"i is {i}")
+            for j in range(i):
+                dp[i] += dp[j] * dp[i-1-j]
+        return dp[n]
+```
+
+## 0-1 背包问题
+
+2维dp数组：任取的这个概念理解起来有点抽象
+
+初始化：dp[i][0] = 0; dp[0][weight[0]:] = value[0]
+
+dp[i][j] = max(dp[i-1][j], dp[i-1][j-weight[i]] + value[i])
+
+
+1维dp数组：对我来讲比较容易些, nested loop的思路
+
+dp[i] = max(dp[i], dp[i-weight[j]] + value[j]
 
 找零问题
 ```
